@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://y20lgdu18wxs"]
+
+[ext_resource type="Script" uid="uid://dc80l353hijkt" path="res://game_menager.gd" id="1_vwxa5"]
+[ext_resource type="AudioStream" uid="uid://w8kmutap7c1g" path="res://Main/assets/sound/powerUp.wav" id="2_xr3vr"]
+
+[node name="GameMenager" type="Node2D"]
+script = ExtResource("1_vwxa5")
+
+[node name="som_gol" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xr3vr")
