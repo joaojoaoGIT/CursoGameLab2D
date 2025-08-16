@@ -16,7 +16,7 @@ func _ready() -> void:
 	reset()
 
 func reset():
-	flying = true
+	flying = false
 	falling = false
 	position = START_POS
 	
@@ -26,13 +26,15 @@ func _physics_process(delta: float) -> void:
 		
 		if velocity.y >= MAX_VEL:
 			velocity.y = MAX_VEL
-		flap()
+		
 		
 		if flying:
 			set_rotation(deg_to_rad(velocity.y * 0.05))
 			animated_sprite_2d.play()
+			flap()
 		elif falling:
-			pass
+			set_rotation(PI / 2)
+			animated_sprite_2d.stop( )
 		move_and_slide()
 
 func flap():
