@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bow6brbq32xqa"]
+
+[ext_resource type="Script" uid="uid://do1ydf0ft15dg" path="res://Scene/Player/player.gd" id="1_67a6e"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_67a6e")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 1
+position = Vector2(52, -23)
+scale = Vector2(0.901382, 0.803277)
+color = Color(0.842336, 0.522659, 0.533588, 1)
+polygon = PackedVector2Array(-33.2822, 9.9592, -68.7832, 22.4082, -85.4243, 11.2041, -88.7526, 14.9388, -90.9714, 18.6735, -93.1902, 19.9184, -94.2996, 83.4083, -86.5338, 90.8777, -67.6738, 83.4083, -7.76584, 97.1022, -18.8599, 83.4083, 11.0941, 67.2246, 23.2976, 43.5715, -37.7198, 58.5103, -38.8292, 43.5715, 22.1881, 42.3266)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-45, -48)
+scale = Vector2(0.816231, 0.884146)
+polygon = PackedVector2Array(26, 38, 16, 47, 16, 106, 25, 112, 46, 104, 113, 118, 98, 105, 131.393, 90.5724, 146.095, 67.9517, 79.9371, 83.7862, 76.2617, 67.9517, 145.792, 68.9931, 147.32, 67.9517, 100, 45, 84, 36, 44, 48)
