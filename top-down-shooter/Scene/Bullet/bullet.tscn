@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn8id3unr8wtk"]
+
+[ext_resource type="Script" uid="uid://bxlm1m6d65fhe" path="res://Scene/Bullet/bullet.gd" id="1_jef60"]
+
+[node name="Bullet" type="Area2D"]
+z_index = -1
+script = ExtResource("1_jef60")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(-6.91348, -1.84918)
+scale = Vector2(0.6875, 0.65625)
+color = Color(0.070296, 0.80153, 1, 1)
+polygon = PackedVector2Array(8, 1, 6, 3, 6, 7, 6.96981, 7.96981, 8, 9, 12, 9, 14, 7, 14, 3, 13, 2, 12, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.650572, 0.847704)
+scale = Vector2(1.0625, 1.0625)
+polygon = PackedVector2Array(-3.11916, -0.611423, -3.09613, 1.83297, -2, 3, -0.583351, 3, 1, 3, 2.03042, 1.88725, 1.9899, -0.665759, 0.89575, -1.88148, -1.81936, -1.96253)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-0.34552, 1.2858)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

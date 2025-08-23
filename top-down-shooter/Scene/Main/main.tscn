@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvh281idpo4yy"]
+
+[ext_resource type="PackedScene" uid="uid://bow6brbq32xqa" path="res://Scene/Player/player.tscn" id="1_ajaps"]
+[ext_resource type="Script" uid="uid://kw7n1sw078f2" path="res://Scene/Main/main.gd" id="1_pw3jx"]
+[ext_resource type="PackedScene" uid="uid://dn8id3unr8wtk" path="res://Scene/Bullet/bullet.tscn" id="2_c5csi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m5fuk"]
+normal = Vector2(0.999654, -0.0263067)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4vit"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_frkly"]
+normal = Vector2(-0.0208288, -0.999783)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7y4ar"]
+normal = Vector2(0, 1)
+distance = 10.0
+
+[sub_resource type="Environment" id="Environment_pw3jx"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 0.1
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pw3jx")
+
+[node name="Player" parent="." instance=ExtResource("1_ajaps")]
+position = Vector2(480, 210)
+
+[node name="Bullet" parent="." instance=ExtResource("2_c5csi")]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 334)
+shape = SubResource("WorldBoundaryShape2D_m5fuk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1154, 327)
+shape = SubResource("WorldBoundaryShape2D_t4vit")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(581, 646)
+shape = SubResource("WorldBoundaryShape2D_frkly")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(566, -6)
+shape = SubResource("WorldBoundaryShape2D_7y4ar")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pw3jx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
